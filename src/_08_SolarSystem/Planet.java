@@ -11,9 +11,22 @@ public class Planet {
      */
     int x, y, width, height;
     int diameter;
+     Color color;
+    int avgDistFromSun;
+    int orbitalPeriod;
+    int numMoons;
     
-    public Planet(int diameterPixels) {
+    ArrayList<Moon> moons = new ArrayList<>();
+    
+    public Planet(int diameterPixels, Color color, int avgDistFromSun, int orbitalPeriod, int numMoons) {
         this.diameter = diameterPixels;
+        this.color = color;
+        this.avgDistFromSun = avgDistFromSun;
+        this.orbitalPeriod = orbitalPeriod;
+        this.numMoons = numMoons; 
+        for(int i=0; i < numMoons; i++) {
+        	addMoon();
+        }
     }
 
     public void draw(Graphics g, int numDays) {
@@ -21,9 +34,9 @@ public class Planet {
          * Local variables
          * Reassign or remove these after creating the correct member variables
          */
-        int avgDistFromSun = 1496 / 10;     // You can choose a different scaling than divided by 10
-        int orbitalPeriod = 365;
-        Color color = Color.BLUE;
+        //int avgDistFromSun = 1496 / 10;     // You can choose a different scaling than divided by 10
+        //int orbitalPeriod = 365;
+        //Color color = Color.BLUE;
         
         /*
          * Update position
@@ -64,7 +77,7 @@ public class Planet {
     }
     
     
-    ArrayList<Moon> moons = new ArrayList<>();
+
     
     public void addMoon() {
         moons.add(new Moon());

@@ -51,8 +51,8 @@ import game_tools.GameControlScene;
  */
 
 public class SolarSystem implements GameControlScene {
-    static final int DISPLAY_WIDTH = 1000;
-    static final int DISPLAY_HEIGHT = DISPLAY_WIDTH;
+    static final int DISPLAY_WIDTH =1920;
+    static final int DISPLAY_HEIGHT = 1000;
     static final int CENTER_X = DISPLAY_WIDTH / 2;
     static final int CENTER_Y = DISPLAY_HEIGHT / 2;
     static final int SUN_RADIUS_PIXELS = (1391 / 2) / 20;
@@ -66,17 +66,23 @@ public class SolarSystem implements GameControlScene {
     Long startTimeMs = null;
     Game gameFrame = new Game("Solar System");
     
-    Planet earth = new Planet(12);
+    Planet earth = new Planet(12, new Color(3, 19, 252), 149, 365, 1);
+    Planet mercury = new Planet(4, new Color(32, 32, 36),57, 88, 0 );
+    Planet venus = new Planet(12, new Color(252, 186, 3), 108, 225, 0);
+    Planet mars = new Planet(6, new Color(145, 16, 16), 227, 387, 2);
+    Planet jupiter = new Planet(142, new Color(145, 72, 16), 478, 4331, 79);
+    Planet saturn = new Planet(120, new Color(163, 148, 64), 633, 10747, 82);
+    Planet uranus = new Planet(51, new Color(64, 161, 163), 772, 30589, 27);
+    Planet neptune = new Planet(49, new Color(4, 11, 94), 895, 59800, 14);
+    Planet pluto = new Planet(1, new Color(32, 32, 36), 999, 7777777, 500);
+    
     
     public SolarSystem() {
         gameFrame.setScene(this);
         gameFrame.start();
         gameFrame.setSize(DISPLAY_WIDTH, DISPLAY_HEIGHT);
         
-        /*
-         * Add Earth's moon
-         */
-        earth.addMoon();
+      
         
         sunX = CENTER_X - SUN_RADIUS_PIXELS;
         sunY = CENTER_Y - SUN_RADIUS_PIXELS;
@@ -118,6 +124,14 @@ public class SolarSystem implements GameControlScene {
          * Add planets here
          */
         earth.draw(g, numDays);
+        mercury.draw(g, numDays);
+        venus.draw(g, numDays);
+        mars.draw(g, numDays);
+        jupiter.draw(g, numDays);
+        saturn.draw(g, numDays);
+        uranus.draw(g, numDays);
+        neptune.draw(g, numDays);
+        pluto.draw(g, numDays);
     }
     
     @Override
